@@ -23,6 +23,8 @@ requirements:
   host:
     - libosqp
     - eigen
+  run:
+    - eigen
 
 test:
   commands:
