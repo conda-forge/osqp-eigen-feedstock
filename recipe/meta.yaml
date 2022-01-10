@@ -1,5 +1,5 @@
 {% set name = "osqp-eigen" %}
-{% set version = "0.6.4" %}
+{% set version = "0.7.0" %}
 
 package:
   name: {{ name }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/robotology/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: f3fcff8b26646410b40c2003f5c2ffb7b0099fa70a6aa531dec69cfaf4de9aef
+  sha256: d47726747d61c1d251a6ef7741fbfb0374fbe9e1f263f1cb610299166b774926
 
 build:
-  number: 1
+  number: 0
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x.x') }}
 
@@ -42,7 +42,7 @@ about:
   license: LGPL-3.0-or-later
   license_family: LGPL
   license_file: LICENSE
-  summary: 'Simple C++ wrapper for osqp library.'
+  summary: Simple C++ wrapper for osqp library.
 
 extra:
   recipe-maintainers:
