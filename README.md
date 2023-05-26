@@ -1,11 +1,11 @@
-About osqp-eigen
-================
+About osqp-eigen-feedstock
+==========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/osqp-eigen-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/robotology/osqp-eigen
 
 Package license: LGPL-3.0-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/osqp-eigen-feedstock/blob/main/LICENSE.txt)
 
 Summary: Simple C++ wrapper for osqp library.
 
@@ -206,7 +206,4 @@ Feedstock Maintainers
 
 * [@GiulioRomualdi](https://github.com/GiulioRomualdi/)
 * [@traversaro](https://github.com/traversaro/)
-
-
-<!-- dummy commit to enable rerendering -->
 
