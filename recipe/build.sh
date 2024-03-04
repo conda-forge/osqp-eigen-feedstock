@@ -2,9 +2,9 @@
 
 mkdir build && cd build
 
-cmake ${CMAKE_ARGS} \
+cmake ${CMAKE_ARGS} -GNinja \
       -DCMAKE_BUILD_TYPE=Release \
       $SRC_DIR
 
-make -j${CPU_COUNT}
-make install
+cmake --build . --config Release
+cmake --build . --config Release --target install
