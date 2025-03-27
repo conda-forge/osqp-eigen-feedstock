@@ -1,5 +1,5 @@
 {% set name = "osqp-eigen" %}
-{% set version = "0.9.0" %}
+{% set version = "0.10.0" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/robotology/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 21bf0c690482a3042f92ad4352356ef629f9d72bb0e7fd10ddc414eee434f417
+  sha256: 2f6605f1f1a60b54b708b2a97b61f2a3b136c388037d9d7ef0228002de8cad39
 
 build:
   number: 0
