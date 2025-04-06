@@ -8,9 +8,11 @@ package:
 source:
   url: https://github.com/robotology/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 2f6605f1f1a60b54b708b2a97b61f2a3b136c388037d9d7ef0228002de8cad39
+  patches:
+    - 190.patch
 
 build:
-  number: 1
+  number: 2
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x.x') }}
 
