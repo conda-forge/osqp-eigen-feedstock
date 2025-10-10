@@ -12,7 +12,8 @@ source:
 build:
   number: 0
   run_exports:
-    - {{ pin_subpackage(name, max_pin='x.x.x') }}
+  # See compatibility policy in https://github.com/robotology/osqp-eigen?tab=readme-ov-file#-compatibility-policy
+    - {{ pin_subpackage(name, max_pin='x.x') }}
 
 requirements:
   build:
