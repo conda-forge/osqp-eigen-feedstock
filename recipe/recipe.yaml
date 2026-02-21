@@ -25,6 +25,7 @@ requirements:
   host:
     - libosqp
     - eigen
+    - eigen-abi-devel
   run:
     - eigen
   run_exports:
