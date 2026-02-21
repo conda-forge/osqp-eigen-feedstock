@@ -1,0 +1,65 @@
+schema_version: 1
+
+context:
+  name: osqp-eigen
+  version: 0.11.0
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/robotology/${{ name }}/archive/refs/tags/v${{ version }}.tar.gz
+  sha256: a668a49877ff411c136e1d8e0088d88ba98968c6752fbd58fb2dd068f25b60c2
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+    - ${{ compiler('cxx') }}
+    - ninja
+    - cmake
+  host:
+    - libosqp
+    - eigen
+  run:
+    - eigen
+  run_exports:
+    - ${{ pin_subpackage(name, upper_bound='x.x') }}
+
+tests:
+  - requirements:
+      run:
+        - cmake-package-check
+        - ${{ compiler('c') }}
+        - ${{ compiler('cxx') }}
+    script:
+      - if: not win
+        then: test -f ${PREFIX}/include/OsqpEigen/OsqpEigen.h
+      - if: not win
+        then: test -f ${PREFIX}/lib/cmake/OsqpEigen/OsqpEigenConfig.cmake
+      - if: not win
+        then: test -f ${PREFIX}/lib/libOsqpEigen${SHLIB_EXT}
+      - if: win
+        then: if not exist %PREFIX%\\Library\\include\\OsqpEigen\\OsqpEigen.h exit 1
+      - if: win
+        then: if not exist %PREFIX%\\Library\\lib\\OsqpEigen.lib exit 1
+      - if: win
+        then: if not exist %PREFIX%\\Library\\bin\\OsqpEigen.dll exit 1
+      - if: win
+        then: if not exist %PREFIX%\\Library\\lib\\cmake\\OsqpEigen\\OsqpEigenConfig.cmake exit 1
+      - cmake-package-check OsqpEigen
+
+about:
+  license: BSD-3-Clause
+  license_file: LICENSE
+  summary: Simple C++ wrapper for osqp library.
+  homepage: https://github.com/robotology/osqp-eigen
+
+extra:
+  recipe-maintainers:
+    - GiulioRomualdi
+    - traversaro
