@@ -32,27 +32,20 @@ requirements:
     - ${{ pin_subpackage(name, upper_bound='x.x') }}
 
 tests:
+  - package_contents:
+      include:
+        - OsqpEigen/OsqpEigen.h
+      lib:
+        - OsqpEigen
+      files:
+        - "**/cmake/OsqpEigen/OsqpEigenConfig.cmake"
   - requirements:
       run:
         - cmake-package-check
         - ${{ compiler('c') }}
         - ${{ compiler('cxx') }}
     script:
-      - if: not win
-        then: test -f ${PREFIX}/include/OsqpEigen/OsqpEigen.h
-      - if: not win
-        then: test -f ${PREFIX}/lib/cmake/OsqpEigen/OsqpEigenConfig.cmake
-      - if: not win
-        then: test -f ${PREFIX}/lib/libOsqpEigen${SHLIB_EXT}
-      - if: win
-        then: if not exist %PREFIX%\\Library\\include\\OsqpEigen\\OsqpEigen.h exit 1
-      - if: win
-        then: if not exist %PREFIX%\\Library\\lib\\OsqpEigen.lib exit 1
-      - if: win
-        then: if not exist %PREFIX%\\Library\\bin\\OsqpEigen.dll exit 1
-      - if: win
-        then: if not exist %PREFIX%\\Library\\lib\\cmake\\OsqpEigen\\OsqpEigenConfig.cmake exit 1
-      - cmake-package-check OsqpEigen
+      - cmake-package-check OsqpEigen --targets OsqpEigen::OsqpEigen
 
 about:
   license: BSD-3-Clause
