@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: osqp-eigen
-  version: 0.11.0
+  version: "0.11.1"
 
 package:
   name: ${{ name }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://github.com/robotology/${{ name }}/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: a668a49877ff411c136e1d8e0088d88ba98968c6752fbd58fb2dd068f25b60c2
+  sha256: 731f9242f7144a652268a2c4cf1e38b6b18b9ac582c065a63ce9d5c491877a3a
 
 build:
-  number: 2
+  number: 0
 
 requirements:
   build:
